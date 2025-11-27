@@ -2,14 +2,17 @@ import mongoose from "mongoose";
 
 class Database {
     constructor() {
-        this.mongo
+        this.connect();
     }
-    mongo() {
-         mongoose.connect("mongodb://localhost:27018/to-do").then(() => {
+    
+    async connect() {
+        try {
+            await mongoose.connect("mongodb://localhost:27018/to-do");
             console.log("MongoDB Connected");
-         }).catch((err) => {
-            console.log("Error:" +err);
-         })
+        } catch (err) {
+            console.log("Error:", err);
+            process.exit(1); // Para o app se não conseguir conectar
+        }
     }
 }
 
