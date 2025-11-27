@@ -11,7 +11,7 @@ class Database {
             console.log("MongoDB Connected");
         } catch (err) {
             console.log("Error:", err);
-            process.exit(1); // Para o app se não conseguir conectar
+            process.exit(1); 
         }
     }
 }
